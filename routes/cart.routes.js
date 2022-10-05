@@ -6,7 +6,6 @@ const {
   updateCart,
   removeProductFromCart,
   makePurchase,
-  getProductsInCart,
 } = require("../controllers/cart.controller");
 
 //Middlewares...
@@ -23,7 +22,6 @@ const cartsRouter = express.Router();
 cartsRouter.use(protectSession);
 
 cartsRouter.post("/add-product", cartActiveExist, addProduct);
-cartsRouter.get("/productsInCart", getProductsInCart);
 cartsRouter.patch("/update-cart", updateCart);
 cartsRouter.delete("/:productId", productsInCartExist, removeProductFromCart);
 cartsRouter.post("/purchase", makePurchase);

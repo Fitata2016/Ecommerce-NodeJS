@@ -58,14 +58,6 @@ const addProduct = catchAsync(async (req, res, next) => {
   }
 });
 
-const getProductsInCart = catchAsync(async (req, res, next) => {
-  const productsInCarts = await ProductsInCart.findAll();
-  res.status(200).json({
-    status: "success",
-    data: { productsInCarts },
-  });
-});
-
 const updateCart = catchAsync(async (req, res, next) => {
   const { sessionUser } = req;
   const { productId, quantity } = req.body;
@@ -179,5 +171,4 @@ module.exports = {
   updateCart,
   removeProductFromCart,
   makePurchase,
-  getProductsInCart,
 };
